@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeZone - Full Report</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: black;
+            color: #00c6ff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 20px #00c6ff;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .report-section {
+            margin: 30px 0;
+            padding: 20px;
+            border-radius: 15px;
+            background: #121212;
+            box-shadow: 0 0 10px #ff6900;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+            overflow: hidden;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #ff6900;
+        }
+
+        .safe {
+            color: #00ff00;
+        }
+
+        .danger {
+            color: #ff0000;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 20px 10px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            background: #ff6900;
+            color: black;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 5px 10px #00c6ff;
+        }
+
+        .btn:hover {
+            background: #00c6ff;
+            box-shadow: 0 5px 15px #ff6900;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 10px;
+            overflow: auto;
+            max-height: 300px;
+            scrollbar-color: #00c6ff black;
+            scrollbar-width: thin;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 SafeZone Full Report</h1>
+
+        <div class="report-section" id="website-info"></div>
+        <div class="report-section" id="threat-analysis"></div>
+        <div class="report-section" id="ssl-info"></div>
+        <div class="report-section" id="whois-info"></div>
+        <div class="report-section" id="recommendations"></div>
+
+        <div style="text-align: center;">
+            <a href="final.html" class="btn">🔙 Go Back to Scan</a>
+            <a href="SafeZone.html" class="btn">🔄 Scan Another Website</a>
+            <button class="btn" onclick="window.print()">🖨️ Print Report</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const reportData = JSON.parse(localStorage.getItem('SafeZoneReport'));
+
+            if (!reportData) {
+                alert("No scan data found! Please scan a website first.");
+                window.location.href = "popup.html";
+                return;
+            }
+
+            const { domain, ipAddress, ipReputation, safeBrowsing, ssl, whoisAbstract } = reportData;
+            const abuseScore = ipReputation?.abuseConfidenceScore ?? "N/A";
+            
+            let riskColor = "safe";
+            let riskLevel = "No Threats Found ✅";
+            if (abuseScore >= 30) {
+                riskColor = "warning";
+                riskLevel = "⚠️ Medium Risk";
+            }
+            if (abuseScore >= 70) {
+                riskColor = "danger";
+                riskLevel = "❌ High Risk";
+            }
+
+            document.getElementById('website-info').innerHTML = `
+                <h2>🌐 Website Information</h2>
+                <p><span class="label">Domain:</span> ${domain || "N/A"}</p>
+                <p><span class="label">IP Address:</span> ${ipAddress || "Unknown"}</p>
+            `;
+
+            document.getElementById('threat-analysis').innerHTML = `
+                <h2>🚨 Threat Analysis</h2>
+                <p><span class="label">Google Safe Browsing:</span> <span class="${safeBrowsing === 'Safe' ? 'safe' : 'danger'}">${safeBrowsing || "N/A"}</span></p>
+                <p><span class="label">AbuseIPDB Score:</span> <span class="${riskColor}">${riskLevel} (${abuseScore}%)</span></p>
+            `;
+
+            document.getElementById('ssl-info').innerHTML = `
+                <h2>🔒 SSL Certificate</h2>
+                <p>${ssl || "SSL Check Failed"}</p>
+            `;
+
+            const jsonData = JSON.parse(localStorage.getItem("SafeZoneReport"));
+
+        if (jsonData) {
+    document.getElementById("whois-info").innerHTML = `
+        <h2>📝 WHOIS Information</h2>
+        <pre>${JSON.stringify(jsonData.whoisAbstract, null, 2)}</pre>
+    `;
+}
+
+
+            let recommendationText = "✅ This website appears safe.";
+            if (abuseScore >= 30) {
+                recommendationText = "⚠️ Proceed with caution. Check for HTTPS and verify authenticity.";
+            }
+            if (abuseScore >= 70) {
+                recommendationText = "❌ Avoid this website. Do NOT enter personal details.";
+            }
+            document.getElementById('recommendations').innerHTML = `
+                <h2>✅ Recommendations</h2>
+                <p>${recommendationText}</p>
+            `;
+        });
+    </script>
+</body>
+</html>

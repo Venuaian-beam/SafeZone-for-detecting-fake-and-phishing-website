@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lockspace - Security Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+           
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>SafeZone</h1>
+            <p>Your trusted partner in detecting fake and phishing websites.</p>
+        </div>
+    </header>
+    <section id="Scanning">
+        <div class="container">
+            <h>We are here to protect you from all phishing attacks. We are preventing you from being scammed on fake sites and also to prevent your data from being stolen. Cyber Crime is on the ascendancy and we are here to protect you!</h>
+            <h>We put you in a SafeZone</h><br>
+        </div>
+        <title>Video Background Website</title>
+        <style>
+            body, html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                
+            }
+    
+            .video-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1; /* Send video to the background */
+                object-fit: cover; /* Ensures the video covers the full screen */
+            }
+    
+            .content {
+                position: relative;
+                z-index: 1; /* Bring content on top */
+                /* color: white; */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                text-align: center;
+                font-size: 2rem;
+            }
+            .view-full-report-btn {
+                padding: 12px 20px;
+                background: #ff6900;
+                color: white;
+                border: none;
+                border-radius: 20px;
+                font-size: 16px;
+                cursor: pointer;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                transition: background 0.3s, transform 0.2s;
+            }
+
+            .view-full-report-btn:hover {
+                background: #e65c00;
+                transform: scale(1.05);
+            }
+            #fullReportButton {
+                margin-top: 10px;
+                background-color: #ff6900;
+                color: white;
+                padding: 10px;
+                border: none;
+                border-radius: 20px;
+                font-size: 14px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            
+            }
+
+            #fullReportButton:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <!-- Video Background -->
+        <video class="video-container" autoplay loop muted playsinline>
+            <source src="cyber security stock footage - free video cyber security background (2).mp4" type="video/mp4">
+            <!-- <source src="Futuristic HUD Sound Design - Blake Sanchez.mp4" type="video/mp4"> -->
+            <!-- <source src="HI tech screen 8 hours. loop.mp4" type="video/mp4"> -->
+            Your browser does not support the video tag.
+        </video>
+        <!-- White Overlay -->
+        <div class="black-overlay"></div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Our Features</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>Real-Time Monitoring </h3><textcolor="blue">
+                    <p>Stay protected with our 24/7 monitoring services.</p>
+                </div>
+                <div class="feature">
+                    <h3>Threat Intelligence</h3>
+                    <p>Get insights into potential threats before they impact you.</p>
+                </div>
+                <div class="feature">
+                    <h3>Easy Integration</h3>
+                    <p>Seamlessly integrate with your existing systems.</p>
+                </div>
+                <div class="feature">
+                    <h3>Comprehensive Reports</h3>
+                    <p>Receive detailed reports on your security status.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="scanning">
+        <form action="/SafeZone" method="post">
+            <input type="text" name="url" placeholder="Enter URL to scan" required style="padding: 12px; width: 70%; border: 4px solid #00c6ff; border-radius: 5px; background:black; margin-right: 10px; font-size: 16px; color:#00c6ff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s, transform 0.3s;">
+
+            <button type="submit" style="padding: 12px 20px; background: #ff6900; color: black; border: none; border-radius: 20px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 5px  #007bff, #00c6ff; transition: background 0.3s;">Scan</button>
+            <!-- <input type="url" name="url" placeholder="Enter URL to scan" required 
+                style="padding: 12px; width: 70%; border: 4px solid #00c6ff; border-radius: 5px; background:black; margin-right: 10px; font-size: 16px; color:#00c6ff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s, transform 0.3s;"> -->
+        </form>
+            <section id="features">
+                <div class="container">
+                    <h2>General Reports</h2>
+                    <div class="feature-grid">
+                        <div class="feature">
+                            <h3>Report Status</h3>
+                            <p>Waiting for scan...</p>                            
+                        </div>
+                        
+                        <div class="feature">
+                            <h3>Potential risk</h3>
+                            <p>No risk assessed yet...</p>
+                        </div>
+                        <div class="feature">
+                            <h3>Recommendation</h3>
+                            <p>No recommendation yet...</p>
+                        </div>                        
+                    </div>
+                </div>
+                <a href="full.html">
+                <button  id="fullReportButton" class="hidden">View Full Report</button>
+            </a>
+                <section id="contact">
+                    <div class="container">
+                        <h2>Contact Us</h2>
+                        <p>Get in touch with us to learn more about our services.</p>
+                        <div id="contact-form">
+                            <form>
+                                <input type="text" name="name" placeholder="Name" required style="padding: 12px; width: 70%; border: 2px solid #00c6ff; border-radius: 5px; background:black; margin-right: 10px; font-size: 16px; color:#00c6ff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s, transform 0.3s;"><br><br>
+                                <input type="email" name="email" placeholder="Email" required style="padding: 12px; width: 70%; border: 2px solid #00c6ff; border-radius: 5px; background:black; margin-right: 10px; font-size: 16px; color:#00c6ff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s, transform 0.3s;"><br>
+                                <textarea name="message" placeholder="Message" required style="padding: 12px; width: 70%; border: 2px solid #00c6ff; border-radius: 5px;background: black; margin: 10px 0; font-size: 16px; color: #00c6ff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s, transform 0.3s;"></textarea><br>
+                                <button type="submit" style="padding: 12px 20px; background: #ff6900; color: white; border: none; border-radius: 20px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); transition: background 0.3s;">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </section>
+    </section>
+
+    
+    </section>
+
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Lockspace. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+<style>
+  * {
+    box-sizing: border-box;
+}
+
+body {
+    /* font-family: 'Poppins', sans-serif; */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header {
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    padding: 1px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+}
+
+header p {
+    font-size: 1.5em;
+}
+
+.cta-button {
+    background: #ff6900;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #e65c00;
+}
+
+section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    color:white;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1; /* Ensures content appears above overlay */
+    font-size: 20px;
+    
+    
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.feature-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    border:#ff6900;
+}
+
+.feature {
+    flex: 1 1 calc(25% - 20px);
+    background: #00c6ff ;
+    color:black;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #007bff, #00c6ff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 2px 5px #007bff, #00c6ff;
+    border-color: #00c6ff;
+    margin:#00c6ff;
+}
+footer{
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    padding: 1px 0;
+    text-align: center;
+
+}
+.scanning{
+   background:#00c6ff;
+}
+.black-overlay {
+    position: fixed; /* Stays on top of video */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* White with transparency */
+    z-index: -1; /* Keep it above the video but below content */
+}
+
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const scanForm = document.querySelector('form[action="/SafeZone"]');
+    const urlInput = scanForm.querySelector('input[name="url"]');
+    
+    // Target the General Reports section
+    const reportStatus = document.querySelector('#scanning .feature-grid .feature:nth-child(1) p');
+    const potentialRisk = document.querySelector('#scanning .feature-grid .feature:nth-child(2) p');
+    const recommendation = document.querySelector('#scanning .feature-grid .feature:nth-child(3) p');
+
+    
+    document.addEventListener('DOMContentLoaded', () => {
+    const fullReportButton = document.getElementById('fullReportButton');
+
+    fullReportButton.addEventListener('click', () => {
+        window.location.href = 'full.html'; // Redirects to full.html
+    });
+    });
+
+
+    scanForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const url = urlInput.value;
+
+        // Reset and show loading state
+        reportStatus.innerHTML = 'Scanning in progress...';
+        potentialRisk.innerHTML = 'Analyzing website...';
+        recommendation.innerHTML = 'Please wait while we check the URL...';
+
+        try {
+            // Ensure the backend URL is correct (use localhost for development)
+            const response = await fetch('http://localhost:5000/SafeZone', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url })
+            });
+
+            if (!response.ok) throw new Error('Failed to fetch from backend.');
+
+            const data = await response.json();
+
+            // Update Report Status
+            reportStatus.innerHTML = `
+                <strong>Domain:</strong> ${data.domain || 'N/A'}<br>
+                <strong>Safe Browsing:</strong> ${data.safeBrowsing || 'Unknown'}<br>
+                <strong>SSL Status:</strong> ${data.ssl || 'Not Checked'}
+            `;
+
+            // Update Potential Risk
+            const ipReputation = data.ipReputation || {};
+            potentialRisk.innerHTML = `
+                <strong>IP Abuse Score:</strong> ${ipReputation.abuseScore || 'N/A'}${ipReputation.abuseScore ? '/100' : ''}<br>
+                <strong>Total Reports:</strong> ${ipReputation.reports || 'N/A'}<br>
+                <strong>Whitelisted:</strong> ${ipReputation.isWhitelisted ? 'Yes' : 'No'}
+            `;
+
+            // Update Recommendation
+            let recommendationText = '✅Website is safe to access..<br><br>';
+            if (data.safeBrowsing === 'Risky') {
+                recommendationText = '⚠️ High Risk: Avoid accessing this website.';
+            } else if (ipReputation.abuseScore > 50) {
+                recommendationText = '⚠️ Moderate Risk: Proceed with caution.';
+            }
+            if (data.ssl !== 'Secure (HTTPS)') {
+                recommendationText += '🚨Website lacks a secure connection..<br>';
+            }
+
+            recommendation.innerHTML = `
+                <strong>Security Advice:</strong> ${recommendationText}<br>
+                <strong>Additional Notes:</strong> ${data.whois ? 'WHOIS data available' : 'No additional information'}
+            `;
+
+        } catch (error) {
+            console.error('❌ Error:', error);
+            reportStatus.textContent = 'Scan Failed';
+            potentialRisk.textContent = 'Error Occurred';
+            recommendation.textContent = 'Unable to complete scan. Please try again.';
+        }
+    });
+});
+</script>
